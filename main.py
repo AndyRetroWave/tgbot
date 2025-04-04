@@ -27,7 +27,7 @@ while counter < 100:
             cat_response = requests.get(API_CATS_URL)
             fox_responce = requests.get(API_FOX_URL)
             if text == 'cat':
-                if cat_response.status_code == 200:
+                if cat_response.status_code == 200: # Не повторяй одинаковый код, лучше вытащить запросы в отдельную функцию
                     cat_link = cat_response.json()[0]['url']
                     requests.get(f'{API_URL}{BOT_TOKEN}/sendPhoto?chat_id={chat_id}&photo={cat_link}')
             elif text == 'fox':
